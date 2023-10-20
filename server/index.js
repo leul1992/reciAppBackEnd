@@ -21,7 +21,7 @@ app.use(deleteFromfavouritesRoute);
 
 // Enable CORS with specific origins
 app.use(cors({
-  origin: ['https://reci-app-front-lukd8953v-leul1992.vercel.app', 'localhost:3000'], // Replace with your frontend's domain
+  origin: ['https://reci-app-front-lukd8953v-leul1992.vercel.app', 'localhost:3000', 'https://reciapp.onrender.com'], // Replace with your frontend's domain
   optionsSuccessStatus: 200, // Some legacy browsers (IE11) choke on a 204 response.
 }));
 
