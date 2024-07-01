@@ -5,6 +5,10 @@ import pool from '../../database/databaseconn.js';
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.send('server running');
+})
+
 // Login endpoint
 router.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
