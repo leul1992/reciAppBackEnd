@@ -5,7 +5,7 @@ import pool from '../../database/databaseconn.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/api', (req, res) => {
     res.send('server running just testing');
 })
 

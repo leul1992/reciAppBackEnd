@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "create-tables": "node server/routes/create_tables.js"
+    "create-tables": "node server/routes/create_tables.js",
+    "build": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
