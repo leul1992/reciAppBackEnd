@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
@@ -11,7 +12,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
-      directory: './migrations',  // Ensure this path is correct
+      directory: path.resolve('migrations'),  // Use path.resolve to dynamically resolve the directory
       tableName: 'knex_migrations'
     }
   },
@@ -23,7 +24,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
-      directory: './migrations',  // Ensure this path is correct
+      directory: path.resolve('migrations'),  // Use path.resolve to dynamically resolve the directory
       tableName: 'knex_migrations'
     }
   },
@@ -35,7 +36,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
-      directory: './migrations',  // Ensure this path is correct
+      directory: path.resolve('migrations'),  // Use path.resolve to dynamically resolve the directory
       tableName: 'knex_migrations'
     }
   }
