@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 const environment = process.env.NODE_ENV || 'development';
 const db = knex(knexConfig[environment]);

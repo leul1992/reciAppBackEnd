@@ -11,6 +11,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
+      directory: './migrations',  // Ensure this path is correct
       tableName: 'knex_migrations'
     }
   },
@@ -22,6 +23,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
+      directory: './migrations',  // Ensure this path is correct
       tableName: 'knex_migrations'
     }
   },
@@ -33,6 +35,7 @@ const knexConfig = {
       max: 10
     },
     migrations: {
+      directory: './migrations',  // Ensure this path is correct
       tableName: 'knex_migrations'
     }
   }
