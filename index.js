@@ -1,10 +1,10 @@
 import express, { json } from 'express';
 import cors from 'cors';
-import signupRoute from './routes/signup.js';
-import loginRoute from './routes/login.js';
-import saveFavouritesRoute from './routes/saveFavourites.js';
-import showFavouritesRoute from './routes/showFavourites.js';
-import deleteFromFavouritesRoute from './routes/deleteFromFavourites.js';
+import signupRoute from './server/routes/signup.js';
+import loginRoute from './server/routes/login.js';
+import saveFavouritesRoute from './server/routes/saveFavourites.js';
+import showFavouritesRoute from './server/routes/showFavourites.js';
+import deleteFromFavouritesRoute from './server/routes/deleteFromFavourites.js';
 
 import knex from 'knex';
 import { Model } from 'objection';

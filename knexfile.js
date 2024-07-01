@@ -2,13 +2,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
-module.exports = {
+const knexConfig = {
   development: {
     client: 'postgresql',
-    connection: process.env.DATABASE_URL,
+    connection: process.env.POSTGRES_URL,
     pool: {
       min: 2,
       max: 10
@@ -19,7 +16,7 @@ module.exports = {
   },
   staging: {
     client: 'postgresql',
-    connection: process.env.DATABASE_URL,
+    connection: process.env.POSTGRES_URL,
     pool: {
       min: 2,
       max: 10
@@ -30,7 +27,7 @@ module.exports = {
   },
   production: {
     client: 'postgresql',
-    connection: process.env.DATABASE_URL,
+    connection: process.env.POSTGRES_URL,
     pool: {
       min: 2,
       max: 10
@@ -40,3 +37,5 @@ module.exports = {
     }
   }
 };
+
+export default knexConfig;
