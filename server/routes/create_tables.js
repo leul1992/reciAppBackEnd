@@ -1,19 +1,33 @@
-const pool = require('../../database/databaseconn');
-     pool.query(`
+import { query } from "../../database/databaseconn.js";
+
+// Function to create tables
+const createTables = async () => {
+  try {
+    await query(`
       CREATE TABLE IF NOT EXISTS users (
-        id serial PRIMARY KEY,
-        username text,
-        password text
+        id SERIAL PRIMARY KEY,
+        username TEXT,
+        password TEXT
       );
     `);
-     pool.query(`
-    CREATE TABLE IF NOT EXISTS favourites (
-      id serial PRIMARY KEY,
-      userid text,
-      recipeid text,
-      recipename text,
-      recipeimage text
-    );
-  `);
+    console.log('Users table created successfully.');
 
-   
+    await query(`
+      CREATE TABLE IF NOT EXISTS favourites (
+        id SERIAL PRIMARY KEY,
+        userid TEXT,
+        recipeid TEXT,
+        recipename TEXT,
+        recipeimage TEXT
+      );
+    `);
+    console.log('Favourites table created successfully.');
+  } catch (error) {
+    console.error('Error creating tables:', error);
+  } finally {
+    process.exit();
+  }
+};
+
+// Run the createTables function
+createTables();

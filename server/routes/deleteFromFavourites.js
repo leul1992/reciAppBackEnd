@@ -1,7 +1,7 @@
 // deleteFromFavourites.js
-const express = require("express");
-const bcrypt = require('bcrypt');
-const pool = require('../../database/databaseconn');
+import express from "express";
+import pool from '../../database/databaseconn.js';
+
 const router = express.Router();
 
 // Delete from favourites endpoint
@@ -27,9 +27,9 @@ router.post('/api/deleteFromFavourites', async (req, res) => {
 
         const index = idarr.indexOf(String(recipeId));
         if (index !== -1) {
-            if (idarr.length == 1){
-                await pool.query('DELETE FROM favourites WHERE id=$1', [row.id])
-                return
+            if (idarr.length === 1) {
+                await pool.query('DELETE FROM favourites WHERE id=$1', [row.id]);
+                return res.json({ success: true, message: 'Recipe removed from favourites' });
             }
             idarr.splice(index, 1);
             namearr.splice(index, 1);
@@ -51,4 +51,4 @@ router.post('/api/deleteFromFavourites', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

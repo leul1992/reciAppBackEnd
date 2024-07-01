@@ -1,11 +1,16 @@
-const { Pool } = require('pg');
-require('dotenv').config();
+import pkg from 'pg';
+import dotenv from 'dotenv';
 
+dotenv.config();
+
+const { Pool } = pkg;
+
+console.log(process.env.DATABASE_URL);
 const pool = new Pool({
-  connectionString: 'postgres://leul:qxYPhvhkMqKpMl2CbNwOuVObAeWvjGAy@dpg-ckjuloolk5ic738cavlg-a.singapore-postgres.render.com/reciapp_hs05',
-  ssl: {
-    rejectUnauthorized: true
-  }
+  connectionString: process.env.DATABASE_URL,
+  ssl: false, // Adjust SSL settings as needed
 });
 
-module.exports = pool;
+export const query = (text, params) => pool.query(text, params);
+
+export default pool;
