@@ -6,7 +6,7 @@ import pool from '../../database/databaseconn.js';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('server running');
+    res.send('server running just testing');
 })
 
 // Login endpoint
