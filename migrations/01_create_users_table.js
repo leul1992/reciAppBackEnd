@@ -1,16 +1,11 @@
-// migrations/01_create_users_table.js
+exports.up = function (knex) {
+  return knex.schema.createTable('users', function (table) {
+    table.increments('id').primary();
+    table.string('username');
+    table.string('password');
+  });
+};
 
-exports.up = function (client) {
-    return client.query(`
-      CREATE TABLE IF NOT EXISTS users (
-        id serial PRIMARY KEY,
-        username text,
-        password text
-      );
-    `);
-  };
-  
-  exports.down = function (client) {
-    return client.query('DROP TABLE users;');
-  };
-  
+exports.down = function (knex) {
+  return knex.schema.dropTable('users');
+};

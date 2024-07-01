@@ -1,18 +1,13 @@
-// migrations/01_create_favourites_table.js
+exports.up = function (knex) {
+  return knex.schema.createTable('favourites', function (table) {
+    table.increments('id').primary();
+    table.integer('userid');
+    table.integer('recipeid');
+    table.string('recipename');
+    table.string('recipeimage');
+  });
+};
 
-exports.up = function (client) {
-    return client.query(`
-      CREATE TABLE IF NOT EXISTS favourites (
-        id serial PRIMARY KEY,
-        userid integer,
-        recipeid integer,
-        recipename text,
-        recipeimage text
-      );
-    `);
-  };
-  
-  exports.down = function (client) {
-    return client.query('DROP TABLE favourites;');
-  };
-  
+exports.down = function (knex) {
+  return knex.schema.dropTable('favourites');
+};
